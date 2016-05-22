@@ -121,7 +121,9 @@ class PopTableViewController: UITableViewController {
         let message = messages[indexPath.row]
         if let messageContent = message["content"] as? String { //outputs date of message creation
             let dateFormat = NSDateFormatter()
-            dateFormat.dateFormat = "MM/dd/yyyy"
+            dateFormat.dateFormat = "MM/dd 'at' hh:mm a"
+            dateFormat.AMSymbol = "AM"
+            dateFormat.PMSymbol = "PM"
             let dateString = dateFormat.stringFromDate(message.creationDate!)
             
             cell.textLabel?.text = messageContent
@@ -129,4 +131,36 @@ class PopTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            let publicData = CKContainer.defaultContainer().publicCloudDatabase
+            let data = messages[indexPath.row]
+            if let message = data["content"] as? String {
+                let query = CKQuery(recordType: "Message", predicate: NSPredicate(format: "content == %@", message))
+                print("performed query")
+                messages.removeAtIndex(indexPath.row)
+                publicData.performQuery(query, inZoneWithID: nil, completionHandler: {
+                    (results,error)-> Void in
+                    if error == nil {
+                        if results!.count > 0 {
+                            let record: CKRecord! = results![0] as CKRecord
+                            publicData.deleteRecordWithID(record.recordID, completionHandler: { (results,error) -> Void in
+                                if error != nil {
+                                    print(error)
+                                }
+                            })
+                        }
+                    }
+                })
+            }
+            print("deleted query")
+        
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
 }
