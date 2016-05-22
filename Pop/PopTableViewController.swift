@@ -112,6 +112,40 @@ class PopTableViewController: UITableViewController {
         return messages.count
     }
     
+    func getDayOfWeek(today:String)->String {
+        
+        let formatter  = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let todayDate = formatter.dateFromString(today)!
+        let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let myComponents = myCalendar.components(.Weekday, fromDate: todayDate)
+        let weekDay = myComponents.weekday
+        if(weekDay == 1) {
+            return "Sun"
+        }
+        else if (weekDay == 2) {
+            return "Mon"
+        }
+        else if (weekDay == 3) {
+            return "Tues"
+        }
+        else if (weekDay == 4) {
+            return "Wed"
+        }
+        else if (weekDay == 5) {
+            return "Thurs"
+        }
+        else if (weekDay == 6) {
+            return "Fri"
+        }
+        else if (weekDay == 7) {
+            return "Sat"
+        }
+        else {
+            return "Day of week error"
+        }
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         if messages.count == 0 {
@@ -121,13 +155,19 @@ class PopTableViewController: UITableViewController {
         let message = messages[indexPath.row]
         if let messageContent = message["content"] as? String { //outputs date of message creation
             let dateFormat = NSDateFormatter()
-            dateFormat.dateFormat = "MM/dd 'at' hh:mm a"
-            dateFormat.AMSymbol = "AM"
-            dateFormat.PMSymbol = "PM"
-            let dateString = dateFormat.stringFromDate(message.creationDate!)
+            dateFormat.dateFormat = "yyyy-MM-dd"
+            var dateString = dateFormat.stringFromDate(message.creationDate!)
+            dateString = getDayOfWeek(dateString) //output day of the week rather than date
+            
+            let timeFormat = NSDateFormatter() //output time of creation date
+            timeFormat.dateFormat = "'at' hh:ss"
+            timeFormat.AMSymbol = "AM"
+            timeFormat.PMSymbol = "PM"
+            let timeString = timeFormat.stringFromDate(message.creationDate!)
+            
             
             cell.textLabel?.text = messageContent
-            cell.detailTextLabel?.text = dateString
+            cell.detailTextLabel?.text = "\(dateString) \(timeString)"
         }
         return cell
     }
@@ -148,6 +188,9 @@ class PopTableViewController: UITableViewController {
                             let record: CKRecord! = results![0] as CKRecord
                             publicData.deleteRecordWithID(record.recordID, completionHandler: { (results,error) -> Void in
                                 if error != nil {
+                                    let ac = UIAlertController(title: "Cannot Delete", message: "You can only delete your own pops", preferredStyle: .Alert)
+                                    ac.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+                                    self.presentViewController(ac, animated: true, completion: nil)
                                     print(error)
                                 }
                             })
