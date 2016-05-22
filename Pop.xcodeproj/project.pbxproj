@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D18C981C1CEE54C2001DD1BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C981B1CEE54C2001DD1BD /* AppDelegate.swift */; };
-		D18C981E1CEE54C2001DD1BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C981D1CEE54C2001DD1BD /* ViewController.swift */; };
 		D18C98211CEE54C3001DD1BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18C981F1CEE54C3001DD1BD /* Main.storyboard */; };
 		D18C98231CEE54C3001DD1BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D18C98221CEE54C3001DD1BD /* Assets.xcassets */; };
 		D18C98261CEE54C3001DD1BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18C98241CEE54C3001DD1BD /* LaunchScreen.storyboard */; };
 		D18C98311CEE54C3001DD1BD /* PopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C98301CEE54C3001DD1BD /* PopTests.swift */; };
 		D18C983C1CEE54C3001DD1BD /* PopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C983B1CEE54C3001DD1BD /* PopUITests.swift */; };
+		D18C984B1CEE5731001DD1BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D18C984A1CEE5731001DD1BD /* CloudKit.framework */; };
+		D18C984D1CEE58FB001DD1BD /* PopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C984C1CEE58FB001DD1BD /* PopTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		D18C98181CEE54C2001DD1BD /* Pop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18C981B1CEE54C2001DD1BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D18C981D1CEE54C2001DD1BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D18C98201CEE54C3001DD1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D18C98221CEE54C3001DD1BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D18C98251CEE54C3001DD1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,9 @@
 		D18C98371CEE54C3001DD1BD /* PopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18C983B1CEE54C3001DD1BD /* PopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUITests.swift; sourceTree = "<group>"; };
 		D18C983D1CEE54C3001DD1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D18C98491CEE54CD001DD1BD /* Pop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pop.entitlements; sourceTree = "<group>"; };
+		D18C984A1CEE5731001DD1BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		D18C984C1CEE58FB001DD1BD /* PopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D18C984B1CEE5731001DD1BD /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,7 @@
 		D18C980F1CEE54C2001DD1BD = {
 			isa = PBXGroup;
 			children = (
+				D18C984A1CEE5731001DD1BD /* CloudKit.framework */,
 				D18C981A1CEE54C2001DD1BD /* Pop */,
 				D18C982F1CEE54C3001DD1BD /* PopTests */,
 				D18C983A1CEE54C3001DD1BD /* PopUITests */,
@@ -97,8 +102,9 @@
 		D18C981A1CEE54C2001DD1BD /* Pop */ = {
 			isa = PBXGroup;
 			children = (
+				D18C98491CEE54CD001DD1BD /* Pop.entitlements */,
 				D18C981B1CEE54C2001DD1BD /* AppDelegate.swift */,
-				D18C981D1CEE54C2001DD1BD /* ViewController.swift */,
+				D18C984C1CEE58FB001DD1BD /* PopTableViewController.swift */,
 				D18C981F1CEE54C3001DD1BD /* Main.storyboard */,
 				D18C98221CEE54C3001DD1BD /* Assets.xcassets */,
 				D18C98241CEE54C3001DD1BD /* LaunchScreen.storyboard */,
@@ -193,6 +199,15 @@
 				TargetAttributes = {
 					D18C98171CEE54C2001DD1BD = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 8HT4SNWT5N;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					D18C982B1CEE54C3001DD1BD = {
 						CreatedOnToolsVersion = 7.3;
@@ -256,8 +271,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D18C981E1CEE54C2001DD1BD /* ViewController.swift in Sources */,
 				D18C981C1CEE54C2001DD1BD /* AppDelegate.swift in Sources */,
+				D18C984D1CEE58FB001DD1BD /* PopTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +414,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pop/Pop.entitlements;
 				INFOPLIST_FILE = Pop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = justinmac.Pop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,7 +427,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Pop/Pop.entitlements;
 				INFOPLIST_FILE = Pop/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = justinmac.Pop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,6 +501,7 @@
 				D18C98421CEE54C3001DD1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D18C98431CEE54C3001DD1BD /* Build configuration list for PBXNativeTarget "PopTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +510,7 @@
 				D18C98451CEE54C3001DD1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D18C98461CEE54C3001DD1BD /* Build configuration list for PBXNativeTarget "PopUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +519,7 @@
 				D18C98481CEE54C3001DD1BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
