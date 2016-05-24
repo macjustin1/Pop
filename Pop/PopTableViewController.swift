@@ -92,6 +92,7 @@ class PopTableViewController: UITableViewController {
                 let notification = CKNotificationInfo()
                 notification.alertBody = "There's a new pop!"
                 notification.soundName = UILocalNotificationDefaultSoundName
+                //update badge
                 notification.shouldBadge = true
                 print("maybe pushed")
                 subscription.notificationInfo = notification
