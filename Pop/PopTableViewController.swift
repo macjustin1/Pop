@@ -14,6 +14,7 @@ class PopTableViewController: UITableViewController {
     
     var refresh : UIRefreshControl!
     var timer : NSTimer!
+    var badgeCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,8 +93,9 @@ class PopTableViewController: UITableViewController {
                 let notification = CKNotificationInfo()
                 notification.alertBody = "There's a new pop!"
                 notification.soundName = UILocalNotificationDefaultSoundName
+                UIApplication.sharedApplication().applicationIconBadgeNumber + 1
                 notification.shouldBadge = true
-                print("maybe pushed")
+                
                 subscription.notificationInfo = notification
                 publicData.saveSubscription(subscription, completionHandler: { (result,error) -> Void in
                     if error != nil {
@@ -160,11 +162,10 @@ class PopTableViewController: UITableViewController {
             dateString = getDayOfWeek(dateString) //output day of the week rather than date
             
             let timeFormat = NSDateFormatter() //output time of creation date
-            timeFormat.dateFormat = "'at' hh:ss"
+            timeFormat.dateFormat = "hh:mm"
             timeFormat.AMSymbol = "AM"
             timeFormat.PMSymbol = "PM"
             let timeString = timeFormat.stringFromDate(message.creationDate!)
-            
             
             cell.textLabel?.text = messageContent
             cell.detailTextLabel?.text = "\(dateString) \(timeString)"
