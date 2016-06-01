@@ -15,6 +15,7 @@
 		D18C983C1CEE54C3001DD1BD /* PopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C983B1CEE54C3001DD1BD /* PopUITests.swift */; };
 		D18C984B1CEE5731001DD1BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D18C984A1CEE5731001DD1BD /* CloudKit.framework */; };
 		D18C984D1CEE58FB001DD1BD /* PopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C984C1CEE58FB001DD1BD /* PopTableViewController.swift */; };
+		D1E010ED1CFE65F100AB035A /* tableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E010EC1CFE65F100AB035A /* tableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		D18C98491CEE54CD001DD1BD /* Pop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Pop.entitlements; sourceTree = "<group>"; };
 		D18C984A1CEE5731001DD1BD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		D18C984C1CEE58FB001DD1BD /* PopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopTableViewController.swift; sourceTree = "<group>"; };
+		D1E010EC1CFE65F100AB035A /* tableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D18C981B1CEE54C2001DD1BD /* AppDelegate.swift */,
 				D18C984C1CEE58FB001DD1BD /* PopTableViewController.swift */,
 				D18C981F1CEE54C3001DD1BD /* Main.storyboard */,
+				D1E010EC1CFE65F100AB035A /* tableViewCell.swift */,
 				D18C98221CEE54C3001DD1BD /* Assets.xcassets */,
 				D18C98241CEE54C3001DD1BD /* LaunchScreen.storyboard */,
 				D18C98271CEE54C3001DD1BD /* Info.plist */,
@@ -276,6 +279,7 @@
 			files = (
 				D18C981C1CEE54C2001DD1BD /* AppDelegate.swift in Sources */,
 				D18C984D1CEE58FB001DD1BD /* PopTableViewController.swift in Sources */,
+				D1E010ED1CFE65F100AB035A /* tableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
