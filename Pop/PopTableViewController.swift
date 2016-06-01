@@ -85,6 +85,9 @@ class PopTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
         
+        loadData() //reload data after you add a new pop
+        
+        //send out a notification to everyone alerting that there's a new pop
         let publicData = CKContainer.defaultContainer().publicCloudDatabase
         publicData.fetchAllSubscriptionsWithCompletionHandler() {
             [unowned self] (subscriptions,error) -> Void in
@@ -104,6 +107,7 @@ class PopTableViewController: UITableViewController {
                 })
             }
         }
+        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -114,13 +118,19 @@ class PopTableViewController: UITableViewController {
         return messages.count
     }
     
-    func getDayOfWeek(today:String)->String {
-        
+    func getDayOfWeek(day:String)->String {
         let formatter  = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        let todayDate = formatter.dateFromString(today)!
+        formatter.timeZone = NSTimeZone(abbreviation: "PT")
+        let today = NSDate()
+        let todayDate = formatter.stringFromDate(today)
+        if(day == todayDate) {
+            return "Today"
+        }
+        
+        let dayDate = formatter.dateFromString(day)!
         let myCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        let myComponents = myCalendar.components(.Weekday, fromDate: todayDate)
+        let myComponents = myCalendar.components(.Weekday, fromDate: dayDate)
         let weekDay = myComponents.weekday
         if(weekDay == 1) {
             return "Sun"
@@ -149,7 +159,7 @@ class PopTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell", forIndexPath: indexPath) as! tableViewCell
         if messages.count == 0 {
             return cell
         }
@@ -162,13 +172,12 @@ class PopTableViewController: UITableViewController {
             dateString = getDayOfWeek(dateString) //output day of the week rather than date
             
             let timeFormat = NSDateFormatter() //output time of creation date
-            timeFormat.dateFormat = "hh:mm"
+            timeFormat.dateFormat = "hh:mm a"
             timeFormat.AMSymbol = "AM"
             timeFormat.PMSymbol = "PM"
             let timeString = timeFormat.stringFromDate(message.creationDate!)
-            
-            cell.textLabel?.text = messageContent
-            cell.detailTextLabel?.text = "\(dateString) \(timeString)"
+            cell.messageView?.text = messageContent
+            cell.timeLabel?.text = "\(dateString) \(timeString)"
         }
         return cell
     }
