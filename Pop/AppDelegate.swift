@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notificationTypes : UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
         let settings = UIUserNotificationSettings(forTypes:
             notificationTypes, categories: nil)
+        FIRApp.configure()
         
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
