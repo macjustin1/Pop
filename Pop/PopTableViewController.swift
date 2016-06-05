@@ -11,7 +11,6 @@ import CloudKit
 
 class PopTableViewController: UITableViewController {
     var messages = [CKRecord]()
-    
     var refresh : UIRefreshControl!
     var timer : NSTimer!
     var badgeCount = 0
@@ -23,10 +22,40 @@ class PopTableViewController: UITableViewController {
         refresh.attributedTitle = NSAttributedString(string: "Pull to load pops")
         refresh.addTarget(self, action: #selector(loadData), forControlEvents: .ValueChanged)
         self.tableView.addSubview(refresh)
-        
+        retrieveUserInfo()
         loadData()
         timer = NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: #selector(loadData), userInfo: nil, repeats: true)
-        
+        print("Current user is: \(username)")
+    }
+    
+    
+    func retrieveUserInfo() {
+        let container = CKContainer.defaultContainer()
+        let database = CKContainer.defaultContainer().publicCloudDatabase
+        container.fetchUserRecordIDWithCompletionHandler({
+            (recordId: CKRecordID?, error: NSError?) in
+            if error != nil {
+                print("Could not receive the record ID")
+            }
+            else {
+                print("Fetching the user ID")
+                database.fetchRecordWithID(recordId!, completionHandler: {
+                    (record: CKRecord?, error: NSError?) in
+                    if error != nil {
+                        print("Error fetching user")
+                    }
+                    else {
+                        if record!.recordType == CKRecordTypeUserRecord {
+                            print("Successfully fetched user record")
+                            print(record?.creatorUserRecordID)
+                            record?["name"] = "JMAC"
+                            
+                            //add objects to this user and save it back to the database
+                        }
+                    }
+                })
+            }
+        })
     }
     
     
@@ -58,6 +87,8 @@ class PopTableViewController: UITableViewController {
             if textField != "" {
                 let newMessage = CKRecord(recordType: "Message")
                 newMessage["content"] = textField.text
+                print("User is \(username)")
+                newMessage["created_by"] = username
                 let publicData = CKContainer.defaultContainer().publicCloudDatabase
                 print("Created default container")
                 publicData.saveRecord(newMessage, completionHandler: {
@@ -158,6 +189,7 @@ class PopTableViewController: UITableViewController {
         }
     }
     
+    //populates the tableView
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell", forIndexPath: indexPath) as! tableViewCell
         if messages.count == 0 {
@@ -178,6 +210,12 @@ class PopTableViewController: UITableViewController {
             let timeString = timeFormat.stringFromDate(message.creationDate!)
             cell.messageView?.text = messageContent
             cell.timeLabel?.text = "\(dateString) \(timeString)"
+            if let userContent = message["created_by"] as? String {
+                cell.username?.text = userContent
+            }
+            else {
+                cell.username?.text = ""
+            }
         }
         return cell
     }
