@@ -27,7 +27,7 @@ class PopDatabase {
     
     var getCurrentUser : FIRDatabaseReference {
         let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
-        let currentUser = FIRDatabase.database().reference().childByAppendingPath("users").childByAppendingPath(userID)
+        let currentUser = FIRDatabase.database().reference().child("users").child(userID)
         return currentUser
     }
     

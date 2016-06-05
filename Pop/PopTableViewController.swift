@@ -64,6 +64,9 @@ class PopTableViewController: UITableViewController {
             if textField != "" {
                 let newMessage = CKRecord(recordType: "Message")
                 newMessage["content"] = textField.text
+                if let user = FIRAuth.auth()?.currentUser?.displayName {
+                    newMessage["created_by"] = user
+                }
                 let publicData = CKContainer.defaultContainer().publicCloudDatabase
                 print("Created default container")
                 publicData.saveRecord(newMessage, completionHandler: {
@@ -184,6 +187,9 @@ class PopTableViewController: UITableViewController {
             let timeString = timeFormat.stringFromDate(message.creationDate!)
             cell.messageView?.text = messageContent
             cell.timeLabel?.text = "\(dateString) \(timeString)"
+            if let userContent = message["created_by"] as? String {
+                cell.userLabel?.text = userContent
+            }
         }
         return cell
     }

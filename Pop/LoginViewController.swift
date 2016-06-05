@@ -50,13 +50,31 @@ class LoginViewController: UIViewController {
                     self.presentViewController(homePage, animated: true, completion: nil)
                 }
             })
-            
-        } else {
+        }
+        else {
             
             // There was a problem
             
             loginErrorAlert("Oops!", message: "Don't forget to enter your email and password.")
         }
+    }
+    @IBAction func forgotPassword(sender: AnyObject) {
+        let alert = UIAlertController.init(title: nil, message: "Email:", preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.Default) { (action) in
+            let userInput = alert.textFields![0].text
+            if (userInput!.isEmpty) {
+                return
+            }
+            FIRAuth.auth()?.sendPasswordResetWithEmail(userInput!) { (error) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+            }
+        }
+        alert.addTextFieldWithConfigurationHandler(nil)
+        alert.addAction(okAction)
+        presentViewController(alert, animated: true, completion: nil);
     }
     
     func loginErrorAlert(title: String, message: String) {

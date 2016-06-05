@@ -12,5 +12,6 @@ class tableViewCell: UITableViewCell {
     
     @IBOutlet weak var messageView: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var userLabel: UILabel!
     
 }
