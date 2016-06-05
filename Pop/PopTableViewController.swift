@@ -8,6 +8,7 @@
 
 import UIKit
 import CloudKit
+import FirebaseAuth
 
 class PopTableViewController: UITableViewController {
     var messages = [CKRecord]()
@@ -26,6 +27,11 @@ class PopTableViewController: UITableViewController {
         
         loadData()
         timer = NSTimer.scheduledTimerWithTimeInterval(15.0, target: self, selector: #selector(loadData), userInfo: nil, repeats: true)
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            let name = user.displayName
+            print("Current user is: \(name)")
+        }
         
     }
     

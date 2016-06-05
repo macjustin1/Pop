@@ -60,7 +60,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVx-T5-gMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433.59999999999997" y="288.73333333333335"/>
+            <point key="canvasLocation" x="523" y="289"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7mn-xS-Z4D">
@@ -122,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="-1056" y="283"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="PMs-Le-KXF">
             <objects>
-                <viewController id="Qb4-re-dpg" sceneMemberID="viewController">
+                <viewController id="Qb4-re-dpg" customClass="LoginViewController" customModule="Pop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2sC-wC-FGY"/>
                         <viewControllerLayoutGuide type="bottom" id="a5l-hH-EEB"/>
@@ -154,7 +154,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YE2-A3-3NA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YE2-A3-3NA">
                                 <rect key="frame" x="47" y="216" width="45" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -175,6 +175,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tryLogin:" destination="Qb4-re-dpg" eventType="touchUpInside" id="eVr-Hj-QJE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40784313729999999" green="0.77647058820000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -186,7 +189,6 @@
                             <constraint firstItem="a5l-hH-EEB" firstAttribute="top" secondItem="zIQ-f3-WmR" secondAttribute="bottom" constant="120" id="CoT-wM-HrB"/>
                             <constraint firstItem="WvY-sm-F0T" firstAttribute="top" secondItem="2sC-wC-FGY" secondAttribute="bottom" constant="34" id="DFX-UC-Bzz"/>
                             <constraint firstItem="uE8-F3-fYu" firstAttribute="baseline" secondItem="9A7-SD-NwQ" secondAttribute="firstBaseline" id="L02-Lq-uEW"/>
-                            <constraint firstItem="YE2-A3-3NA" firstAttribute="leading" secondItem="J2r-3C-Vfc" secondAttribute="leadingMargin" constant="31" id="M6Q-Tb-FpG"/>
                             <constraint firstItem="9A7-SD-NwQ" firstAttribute="leading" secondItem="J2r-3C-Vfc" secondAttribute="leadingMargin" constant="11" id="OyK-0A-8Pp"/>
                             <constraint firstItem="9A7-SD-NwQ" firstAttribute="top" secondItem="YE2-A3-3NA" secondAttribute="bottom" constant="29" id="TIL-wy-Lyg"/>
                             <constraint firstItem="FoP-ba-Ozh" firstAttribute="trailing" secondItem="uE8-F3-fYu" secondAttribute="trailing" id="adL-EB-DEl"/>
@@ -198,6 +200,10 @@
                             <constraint firstItem="WvY-sm-F0T" firstAttribute="centerX" secondItem="J2r-3C-Vfc" secondAttribute="centerX" id="vYh-U9-EX3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="FoP-ba-Ozh" id="axi-39-0h7"/>
+                        <outlet property="passwordField" destination="uE8-F3-fYu" id="fz0-ZY-7mq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ALg-EW-rD7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,7 +274,6 @@
                                 </state>
                                 <connections>
                                     <action selector="createAccount:" destination="l3i-J7-HK7" eventType="touchUpInside" id="eSo-h3-hTx"/>
-                                    <segue destination="ZEA-RV-eOq" kind="modal" identifier="HomePage" id="dSw-A1-vGy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -313,8 +318,9 @@
         <!--Navigation Controller-->
         <scene sceneID="cZL-sx-atW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZEA-RV-eOq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Home" automaticallyAdjustsScrollViewInsets="NO" id="ZEA-RV-eOq" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="q0m-fV-Cth"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3he-Qh-lno">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

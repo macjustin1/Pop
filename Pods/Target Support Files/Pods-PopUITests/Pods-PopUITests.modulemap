@@ -1,0 +1,6 @@
+framework module Pods_PopUITests {
+  umbrella header "Pods-PopUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
