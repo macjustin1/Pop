@@ -16,7 +16,6 @@
 		D18C98211CEE54C3001DD1BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18C981F1CEE54C3001DD1BD /* Main.storyboard */; };
 		D18C98231CEE54C3001DD1BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D18C98221CEE54C3001DD1BD /* Assets.xcassets */; };
 		D18C98261CEE54C3001DD1BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18C98241CEE54C3001DD1BD /* LaunchScreen.storyboard */; };
-		D18C98311CEE54C3001DD1BD /* PopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C98301CEE54C3001DD1BD /* PopTests.swift */; };
 		D18C983C1CEE54C3001DD1BD /* PopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C983B1CEE54C3001DD1BD /* PopUITests.swift */; };
 		D18C984B1CEE5731001DD1BD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D18C984A1CEE5731001DD1BD /* CloudKit.framework */; };
 		D18C984D1CEE58FB001DD1BD /* PopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C984C1CEE58FB001DD1BD /* PopTableViewController.swift */; };
@@ -60,7 +59,6 @@
 		D18C98251CEE54C3001DD1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D18C98271CEE54C3001DD1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D18C982C1CEE54C3001DD1BD /* PopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D18C98301CEE54C3001DD1BD /* PopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTests.swift; sourceTree = "<group>"; };
 		D18C98321CEE54C3001DD1BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D18C98371CEE54C3001DD1BD /* PopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18C983B1CEE54C3001DD1BD /* PopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUITests.swift; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 		D18C982F1CEE54C3001DD1BD /* PopTests */ = {
 			isa = PBXGroup;
 			children = (
-				D18C98301CEE54C3001DD1BD /* PopTests.swift */,
 				D18C98321CEE54C3001DD1BD /* Info.plist */,
 			);
 			path = PopTests;
@@ -474,7 +471,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D18C98311CEE54C3001DD1BD /* PopTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

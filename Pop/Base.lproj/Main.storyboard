@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1rT-kQ-eB8" id="cdO-hY-EVW">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="113.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgw-BM-7An">
@@ -75,6 +75,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pop" id="xGY-3S-nud">
+                        <barButtonItem key="leftBarButtonItem" image="Circled User Male-100" id="ioJ-LI-bOi">
+                            <inset key="imageInsets" minX="0.0" minY="35" maxX="70" maxY="40"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="i9V-R1-Urh">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -388,7 +392,11 @@
             <point key="canvasLocation" x="73.671111111111102" y="289.46542222222217"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Circled User Male-100" width="100" height="100"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="zNi-sE-FFE"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
