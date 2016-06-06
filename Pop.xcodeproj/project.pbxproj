@@ -12,6 +12,8 @@
 		CC5B45669628C0C11AB74626 /* Pods_PopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44CAE967C6C49B7FC868F1B4 /* Pods_PopTests.framework */; };
 		D1163B761D040D660047591B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1163B751D040D660047591B /* GoogleService-Info.plist */; };
 		D1163B781D040DF90047591B /* PopDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1163B771D040DF90047591B /* PopDatabase.swift */; };
+		D14D61D91D04B9AE00589BE4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D61D81D04B9AE00589BE4 /* ProfileView.swift */; };
+		D161DAF81D05353C0074B4EC /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161DAF71D05353C0074B4EC /* InitialViewController.swift */; };
 		D18C981C1CEE54C2001DD1BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C981B1CEE54C2001DD1BD /* AppDelegate.swift */; };
 		D18C98211CEE54C3001DD1BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18C981F1CEE54C3001DD1BD /* Main.storyboard */; };
 		D18C98231CEE54C3001DD1BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D18C98221CEE54C3001DD1BD /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 		B837BC08E6C631339644C4EB /* Pods-PopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PopTests/Pods-PopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1163B751D040D660047591B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1163B771D040DF90047591B /* PopDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopDatabase.swift; sourceTree = "<group>"; };
+		D14D61D81D04B9AE00589BE4 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		D161DAF71D05353C0074B4EC /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		D18C98181CEE54C2001DD1BD /* Pop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18C981B1CEE54C2001DD1BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D18C98201CEE54C3001DD1BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 				D1163B771D040DF90047591B /* PopDatabase.swift */,
 				D1A7822B1D0413C600E9BEE5 /* RegisterViewController.swift */,
 				D1A7822D1D04283800E9BEE5 /* LoginViewController.swift */,
+				D14D61D81D04B9AE00589BE4 /* ProfileView.swift */,
+				D161DAF71D05353C0074B4EC /* InitialViewController.swift */,
 			);
 			path = Pop;
 			sourceTree = "<group>";
@@ -463,7 +469,9 @@
 				D18C981C1CEE54C2001DD1BD /* AppDelegate.swift in Sources */,
 				D18C984D1CEE58FB001DD1BD /* PopTableViewController.swift in Sources */,
 				D1E010ED1CFE65F100AB035A /* tableViewCell.swift in Sources */,
+				D14D61D91D04B9AE00589BE4 /* ProfileView.swift in Sources */,
 				D1163B781D040DF90047591B /* PopDatabase.swift in Sources */,
+				D161DAF81D05353C0074B4EC /* InitialViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

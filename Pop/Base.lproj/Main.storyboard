@@ -78,6 +78,9 @@
                         <barButtonItem key="leftBarButtonItem" image="Circled User Male-100" id="ioJ-LI-bOi">
                             <inset key="imageInsets" minX="0.0" minY="35" maxX="70" maxY="40"/>
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="THI-0q-NKj" kind="modal" id="17y-Zx-Iyk"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="i9V-R1-Urh">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,10 +94,62 @@
             </objects>
             <point key="canvasLocation" x="523" y="289"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View-->
+        <scene sceneID="TTO-aG-YWa">
+            <objects>
+                <viewController id="THI-0q-NKj" customClass="ProfileView" customModule="Pop" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CxP-xr-kz9"/>
+                        <viewControllerLayoutGuide type="bottom" id="6xg-8Q-tDX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zgd-qE-9Ew">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dur-RN-rBR">
+                                <rect key="frame" x="40" y="155" width="240" height="258"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWJ-tf-r1V">
+                                        <rect key="frame" x="85" y="220" width="71" height="30"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Log Out">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutPressed:" destination="THI-0q-NKj" eventType="touchUpInside" id="NRD-TM-WM9"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVl-Kw-TIu">
+                                        <rect key="frame" x="77" y="166" width="87" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Circled User Male-100" translatesAutoresizingMaskIntoConstraints="NO" id="8Ve-Ol-TfQ">
+                                        <rect key="frame" x="63" y="34" width="114" height="119"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="119" id="DsG-hY-AwB"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91127436713449805" green="0.97941810122279416" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.26724642636478729" green="0.45403041336174421" blue="0.78785738031914887" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="userLabel" destination="QVl-Kw-TIu" id="ymB-RP-Lb7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sDV-Mw-ymk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928" y="294"/>
+        </scene>
+        <!--Initial View Controller-->
         <scene sceneID="7mn-xS-Z4D">
             <objects>
-                <viewController id="hd9-nm-iR2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPage" id="hd9-nm-iR2" customClass="InitialViewController" customModule="Pop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rhV-eO-rRz"/>
                         <viewControllerLayoutGuide type="bottom" id="fba-lI-mQH"/>
@@ -396,7 +451,7 @@
         <image name="Circled User Male-100" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zNi-sE-FFE"/>
+        <segue reference="4CM-2g-04F"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

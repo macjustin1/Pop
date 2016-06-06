@@ -20,9 +20,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidAppear(animated)
         
         //if we have the uid stored, the user is already logged in
-        /*if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil {
-            self.performSegueWithIdentifier("HomePage", sender: nil)
-        }*/
         self.emailField.delegate = self
         self.passwordField.delegate = self
     }
