@@ -62,6 +62,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                     // Store the uid for future access - handy!
                     NSUserDefaults.standardUserDefaults().setValue(result?.uid, forKey: "uid")
                     
+                    //Send Email Verification
+                    FIRAuth.auth()?.currentUser?.sendEmailVerificationWithCompletion(nil)
+                    
                     // Enter the app.
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let homePage = storyboard.instantiateViewControllerWithIdentifier("Home")

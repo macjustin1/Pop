@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerUserNotificationSettings(settings)
         application.registerForRemoteNotifications()
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         //application.applicationIconBadgeNumber = 20
         return true
     }
