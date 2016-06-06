@@ -24,6 +24,9 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         self.usernameField.delegate = self
         self.emailField.delegate = self
         self.passwordField.delegate = self
+        usernameField.tintColor = UIColor.grayColor()
+        emailField.tintColor = UIColor.grayColor()
+        passwordField.tintColor = UIColor.grayColor()
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

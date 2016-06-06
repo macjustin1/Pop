@@ -9,6 +9,7 @@ target 'Pop' do
   pod 'Firebase', '>= 2.5.1'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
   target 'PopTests' do
     inherit! :search_paths
     # Pods for testing

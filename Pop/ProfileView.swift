@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
+
 
 class ProfileView: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -17,6 +19,21 @@ class ProfileView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        if let url = FIRAuth.auth()?.currentUser?.photoURL?.absoluteString {
+            let picRef = FIRStorage.storage().referenceForURL(url)
+            picRef.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+                if (error != nil) {
+                    print("Could not download picture")
+                }
+                else {
+                    print("Successfully downloaded picture")
+                    let profileImage: UIImage! = UIImage(data: data!)
+                    self.profileImageView.image = profileImage
+                    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2
+                    self.profileImageView.clipsToBounds = true
+                }
+            }
+        }
         userLabel.text = "@" + (FIRAuth.auth()?.currentUser?.displayName)!
     }
     
@@ -43,12 +60,32 @@ class ProfileView: UIViewController, UIImagePickerControllerDelegate, UINavigati
             
             //save photo as current users' profile pic to database
             var data = UIImageJPEGRepresentation(pickedImage, 0.1)!
-            let base64String = data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength) //encodes image to a string
+            //let base64String = data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength) //encodes image to a string
             //let user: NSDictionary = ["photoBase64":base64String]
-            let user = FIRAuth.auth()?.currentUser
-            if let user = user {
-                let changeRequest = user.profileChangeRequest()
+            let storageRef = FIRStorage.storage().reference()
+            let imageRef = storageRef.child("images/profile.jpg")
+            let uploadTask = imageRef.putData(data, metadata: nil) { metadata, error in
+                if (error != nil) {
+                    print(error)
+                }
+                else {
+                    let downloadURL = metadata!.downloadURL()
+                    let user = FIRAuth.auth()?.currentUser
+                    if let user = user {
+                        let changeRequest = user.profileChangeRequest()
+                        changeRequest.photoURL = downloadURL
+                        changeRequest.commitChangesWithCompletion { error in
+                            if let error = error {
+                                print("Error changing profile picture")
+                            } else {
+                                print("Profile updated")
+                            }
+                        }
+                    }
+                }
             }
+            uploadTask.resume()
+            
         }
         
         dismissViewControllerAnimated(true, completion: nil)
