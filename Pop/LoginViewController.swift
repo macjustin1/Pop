@@ -22,12 +22,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         //if we have the uid stored, the user is already logged in
         self.emailField.delegate = self
         self.passwordField.delegate = self
+        emailField.tintColor = UIColor.grayColor()
+        passwordField.tintColor = UIColor.grayColor()
+        //emailField.resignFirstResponder()
+        //passwordField.resignFirstResponder()
     }
-    
+    /*
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        return true
+    }*/
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -67,6 +72,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             loginErrorAlert("Oops!", message: "Don't forget to enter your email and password.")
         }
     }
+    
     @IBAction func forgotPassword(sender: AnyObject) {
         let alert = UIAlertController.init(title: nil, message: "Email:", preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.Default) { (action) in

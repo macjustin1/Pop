@@ -12,6 +12,10 @@ import FirebaseAuth
 class ProfileView: UIViewController {
     
     @IBOutlet weak var userLabel: UILabel!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        userLabel.text = "@" + (FIRAuth.auth()?.currentUser?.displayName)!
+     }
     @IBAction func logoutPressed(sender: AnyObject) {
         try! FIRAuth.auth()?.signOut()
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
