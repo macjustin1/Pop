@@ -19,21 +19,12 @@ class ProfileView: UIViewController, UIImagePickerControllerDelegate, UINavigati
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
-        if let url = FIRAuth.auth()?.currentUser?.photoURL?.absoluteString {
-            let picRef = FIRStorage.storage().referenceForURL(url)
-            picRef.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-                if (error != nil) {
-                    print("Could not download picture")
-                }
-                else {
-                    print("Successfully downloaded picture")
-                    let profileImage: UIImage! = UIImage(data: data!)
-                    self.profileImageView.image = profileImage
-                    self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2
-                    self.profileImageView.clipsToBounds = true
-                }
-            }
-        }
+        
+        self.profileImageView.image = currentProfileImage
+        self.profileImageView.layer.cornerRadius = 3*self.profileImageView.frame.size.width/4
+        self.profileImageView.clipsToBounds = true
+        self.profileImageView.layer.borderWidth = 3.0
+        self.profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
         userLabel.text = "@" + (FIRAuth.auth()?.currentUser?.displayName)!
     }
     
@@ -57,13 +48,16 @@ class ProfileView: UIViewController, UIImagePickerControllerDelegate, UINavigati
             profileImageView.image = pickedImage
             profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2
             profileImageView.clipsToBounds = true
+            profileImageView.layer.borderWidth = 3.0
+            profileImageView.layer.borderColor = UIColor.whiteColor().CGColor
             
             //save photo as current users' profile pic to database
             var data = UIImageJPEGRepresentation(pickedImage, 0.1)!
             //let base64String = data.base64EncodedStringWithOptions(.Encoding64CharacterLineLength) //encodes image to a string
             //let user: NSDictionary = ["photoBase64":base64String]
             let storageRef = FIRStorage.storage().reference()
-            let imageRef = storageRef.child("images/profile.jpg")
+            let profileID = FIRAuth.auth()?.currentUser?.uid
+            let imageRef = storageRef.child("images/\(profileID).jpg")
             let uploadTask = imageRef.putData(data, metadata: nil) { metadata, error in
                 if (error != nil) {
                     print(error)

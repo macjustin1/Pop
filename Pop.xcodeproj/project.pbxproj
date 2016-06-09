@@ -23,6 +23,7 @@
 		D18C984D1CEE58FB001DD1BD /* PopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18C984C1CEE58FB001DD1BD /* PopTableViewController.swift */; };
 		D1A7822C1D0413C600E9BEE5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A7822B1D0413C600E9BEE5 /* RegisterViewController.swift */; };
 		D1A7822E1D04283800E9BEE5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A7822D1D04283800E9BEE5 /* LoginViewController.swift */; };
+		D1C455EB1D0607C6005EB1D9 /* fireworks.gif in Resources */ = {isa = PBXBuildFile; fileRef = D1C455EA1D0607C6005EB1D9 /* fireworks.gif */; };
 		D1E010ED1CFE65F100AB035A /* tableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E010EC1CFE65F100AB035A /* tableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		D18C984C1CEE58FB001DD1BD /* PopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopTableViewController.swift; sourceTree = "<group>"; };
 		D1A7822B1D0413C600E9BEE5 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D1A7822D1D04283800E9BEE5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D1C455EA1D0607C6005EB1D9 /* fireworks.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fireworks.gif; sourceTree = "<group>"; };
 		D1E010EC1CFE65F100AB035A /* tableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewCell.swift; sourceTree = "<group>"; };
 		F626EDB3464B968283A7AA18 /* Pods-PopUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PopUITests/Pods-PopUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 				D1E010EC1CFE65F100AB035A /* tableViewCell.swift */,
 				D18C98221CEE54C3001DD1BD /* Assets.xcassets */,
 				D1163B751D040D660047591B /* GoogleService-Info.plist */,
+				D1C455EA1D0607C6005EB1D9 /* fireworks.gif */,
 				D18C98241CEE54C3001DD1BD /* LaunchScreen.storyboard */,
 				D18C98271CEE54C3001DD1BD /* Info.plist */,
 				D1163B771D040DF90047591B /* PopDatabase.swift */,
@@ -314,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D18C98261CEE54C3001DD1BD /* LaunchScreen.storyboard in Resources */,
+				D1C455EB1D0607C6005EB1D9 /* fireworks.gif in Resources */,
 				D1163B761D040D660047591B /* GoogleService-Info.plist in Resources */,
 				D18C98231CEE54C3001DD1BD /* Assets.xcassets in Resources */,
 				D18C98211CEE54C3001DD1BD /* Main.storyboard in Resources */,

@@ -57,7 +57,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                         if error != nil {
                             self.signupErrorAlert("Try again", message: "Invalid username, email, or password")
                         }
-                        let user = ["email": email!, "password": password!]
+                        let user = ["email": email!]
                         PopDatabase.dataService.createNewAccount(authData!.uid, user: user)
                         self.setDisplayName(authData!, username: username!)
                     })
@@ -89,7 +89,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 print(error.localizedDescription)
                 return
             }
-            //self.signedIn(FIRAuth.auth()?.currentUser) //error here
         }
     }
     

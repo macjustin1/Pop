@@ -9,6 +9,9 @@
 import UIKit
 import CloudKit
 import FirebaseAuth
+import FirebaseStorage
+
+var currentProfileImage : UIImage!
 
 class PopTableViewController: UITableViewController {
     var messages = [CKRecord]()
@@ -32,9 +35,26 @@ class PopTableViewController: UITableViewController {
             let name = user.displayName
             print("Current user is: \(name)")
         }
-        
+        currentProfileImage = UIImage()
+        downloadProfilePic()
     }
     
+    func downloadProfilePic() {
+        if let url = FIRAuth.auth()?.currentUser?.photoURL?.absoluteString {
+            let picRef = FIRStorage.storage().referenceForURL(url)
+            picRef.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+                if (error != nil) {
+                    print("Could not download picture")
+                }
+                else {
+                    print("Successfully downloaded picture")
+                    let profileImage: UIImage! = UIImage(data: data!)
+                    currentProfileImage = profileImage
+                    
+                }
+            }
+        }
+    }
     
     func loadData() {
         messages = [CKRecord]()
